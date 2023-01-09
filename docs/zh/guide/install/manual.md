@@ -82,7 +82,7 @@ alist restart
 
 ### 守护进程(Linux)
 
-使用任意方式编辑 `/usr/lib/systemd/system/alist.service` 并添加如下内容，其中 path_alist 为 AList 所在的路径
+使用任意方式编辑 `/etc/systemd/system/alist.service` 并添加如下内容，其中 path_alist 为 AList 所在的路径
 
 ```conf
 [Unit]
@@ -92,7 +92,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=path_alist
-ExecStart=path_alist/alist server
+ExecStart=path_alist/alist server --data /opt/alistdir/data/
 Restart=on-failure
  
 [Install]
